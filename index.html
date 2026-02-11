@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.G. interijeri j.d.o.o. | Završni radovi Pula</title>
+    <meta name="description" content="M.G. interijeri j.d.o.o. - završni radovi, suhogradnja, nadstrešnice i metalne konstrukcije u Puli i Istarskoj županiji.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --accent: #e67e22;
+            --accent-dark: #d35400;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 60px rgba(0, 0, 0, 0.12);
+            --radius: 16px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.7;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 72px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            transition: background 0.3s, transform 0.2s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 50%, #0f3460 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px 80px;
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-svg-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-svg-wrap svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 60px rgba(230, 126, 34, 0.2));
+        }
+
+        .hero-svg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(230, 126, 34, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(230, 126, 34, 0.15);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            border: 1px solid rgba(230, 126, 34, 0.25);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            color: var(--white);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            max-width: 750px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--accent), #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(230, 126, 34, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat h3 {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .stat p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 0;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: rgba(230, 126, 34, 0.1);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--light);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-top: 48px;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #ddd, #ccc);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.03), rgba(230, 126, 34, 0.05));
+        }
+
+        .about-text p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--white);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .about-feature .icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(230, 126, 34, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #f39c12);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover {
+            border-color: transparent;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1), rgba(230, 126, 34, 0.05));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.92rem;
+            color: #555;
+        }
+
+        .service-card ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--gray-light);
+            transition: all 0.4s;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .project-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 11;
+            overflow: hidden;
+            background: #eee;
+        }
+
+        .project-slider img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-slider img.active {
+            opacity: 1;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .slider-btn:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn.prev { left: 12px; }
+        .slider-btn.next { right: 12px; }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+
+        .slider-dot.active {
+            background: var(--white);
+            transform: scale(1.3);
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(26, 26, 46, 0.8);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 3;
+            backdrop-filter: blur(8px);
+        }
+
+        .project-info {
+            padding: 24px;
+        }
+
+        .project-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .project-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* TYPES */
+        .types {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .types .section-label {
+            background: rgba(230, 126, 34, 0.2);
+        }
+
+        .types .section-title {
+            color: var(--white);
+        }
+
+        .types .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .type-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .type-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .type-icon {
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .type-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .type-card p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        /* WHY US */
+        .why-us {
+            background: var(--light);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .why-card {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+
+        .why-card:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .why-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.12), rgba(230, 126, 34, 0.04));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .why-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .cta .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta .section-label {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .cta .section-title {
+            color: var(--white);
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: var(--white);
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-light);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+
+        .contact-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.12), rgba(230, 126, 34, 0.04));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent-dark);
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        footer .logo {
+            color: var(--white);
+            font-size: 1.2rem;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 0.85rem;
+        }
+
+        /* MOBILE */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 24px;
+            border-bottom: 1px solid var(--gray-light);
+            box-shadow: var(--shadow);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+            color: var(--accent);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-visual {
+                max-height: 300px;
+                overflow: hidden;
+            }
+            .hero-svg-wrap {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .types-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .why-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            /* HERO MOBILE */
+            .hero {
+                min-height: auto;
+                padding-bottom: 0;
+            }
+            .hero-inner {
+                padding: 100px 20px 40px;
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .hero-visual {
+                order: -1;
+                max-height: 220px;
+                overflow: hidden;
+            }
+            .hero-svg-wrap {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .hero-svg-glow {
+                width: 100%;
+                height: 100%;
+            }
+            .hero-badge {
+                font-size: 0.78rem;
+                padding: 6px 16px;
+                margin-bottom: 16px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+                letter-spacing: -1px;
+                margin-bottom: 14px;
+            }
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+                line-height: 1.7;
+            }
+            .hero-buttons {
+                flex-direction: column;
+            }
+            .btn {
+                justify-content: center;
+                padding: 14px 28px;
+                font-size: 0.95rem;
+            }
+            .hero-stats {
+                gap: 0;
+                flex-wrap: nowrap;
+                margin-top: 32px;
+                padding-top: 24px;
+                justify-content: space-between;
+            }
+            .stat {
+                text-align: center;
+                flex: 1;
+            }
+            .stat h3 {
+                font-size: 1.5rem;
+            }
+            .stat p {
+                font-size: 0.75rem;
+            }
+
+            /* ABOUT MOBILE */
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .about-image {
+                height: 280px;
+                border-radius: 12px;
+            }
+            .about-text p {
+                font-size: 0.95rem;
+            }
+            .about-features {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            /* SERVICES MOBILE - horizontal scroll */
+            .services-grid {
+                grid-template-columns: none;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 16px;
+                padding-bottom: 16px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .services-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .service-card {
+                min-width: 280px;
+                scroll-snap-align: start;
+                flex-shrink: 0;
+                border-left: 4px solid var(--accent);
+            }
+            .service-card::before {
+                display: none;
+            }
+            .service-card .service-icon {
+                width: 48px;
+                height: 48px;
+            }
+            .service-card .service-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* GALLERY MOBILE */
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .project-slider {
+                aspect-ratio: 4 / 3;
+            }
+
+            /* TYPES MOBILE - horizontal scroll */
+            .types-grid {
+                grid-template-columns: none;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 12px;
+                padding-bottom: 12px;
+                -webkit-overflow-scrolling: touch;
+            }
+            .types-grid::-webkit-scrollbar {
+                display: none;
+            }
+            .type-card {
+                min-width: 180px;
+                scroll-snap-align: start;
+                flex-shrink: 0;
+                padding: 24px 20px;
+            }
+
+            /* WHY MOBILE - 2 kolumne */
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .why-card {
+                padding: 24px 14px;
+            }
+            .why-icon {
+                width: 52px;
+                height: 52px;
+            }
+            .why-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            .why-card h4 {
+                font-size: 0.85rem;
+            }
+            .why-card p {
+                font-size: 0.78rem;
+            }
+
+            /* CTA MOBILE */
+            .cta .section-title {
+                font-size: 1.6rem;
+            }
+            .cta p {
+                font-size: 0.95rem;
+            }
+
+            /* CONTACT MOBILE */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .contact-card {
+                padding: 24px 20px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                text-align: left;
+                border-left: 4px solid var(--accent);
+            }
+            .contact-icon {
+                margin: 0;
+                width: 56px;
+                height: 56px;
+                flex-shrink: 0;
+                border-radius: 14px;
+            }
+            .contact-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            section {
+                padding: 56px 20px;
+            }
+            .section-title {
+                font-size: 1.7rem;
+                letter-spacing: -0.5px;
+            }
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+            .section-label {
+                font-size: 0.72rem;
+                padding: 5px 12px;
+                margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .about-feature {
+                padding: 10px 14px;
+                font-size: 0.85rem;
+            }
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .why-card {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                text-align: left;
+                padding: 20px;
+            }
+            .why-icon {
+                margin: 0;
+                flex-shrink: 0;
+            }
+            .service-card {
+                min-width: 260px;
+            }
+            .type-card {
+                min-width: 160px;
+            }
+        }
+
+        /* SCROLL HINT - swipe indikator za mobile */
+        .scroll-hint {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        .scroll-hint svg {
+            animation: swipeHint 1.5s ease-in-out infinite;
+        }
+        @keyframes swipeHint {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(8px); }
+        }
+        @media (max-width: 768px) {
+            .scroll-hint {
+                display: flex;
+            }
+        }
+
+        /* SECTION DIVIDER */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #f39c12, var(--accent));
+            border: none;
+            border-radius: 2px;
+            max-width: 60px;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .section-divider {
+                margin-top: 8px;
+                margin-bottom: 8px;
+            }
+        }
+
+        /* ANIMATIONS */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="logo">M.G. <span>interijeri</span></a>
+            <ul class="nav-links">
+                <li><a href="#o-nama">O nama</a></li>
+                <li><a href="#usluge">Usluge</a></li>
+                <li><a href="#projekti">Projekti</a></li>
+                <li><a href="#zasto-mi">Zašto mi</a></li>
+                <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Otvori izbornik">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#o-nama">O nama</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#projekti">Projekti</a>
+        <a href="#zasto-mi">Zašto mi</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <div class="hero-badge">Pula &amp; Istarska županija</div>
+                <h1>Završni radovi, suhogradnja i <span>metalne konstrukcije</span></h1>
+                <p>M.G. interijeri j.d.o.o. je firma specijalizirana za završne radove u građevinarstvu u Puli i na području Istarske županije. Pouzdane usluge za privatne i poslovne klijente.</p>
+                <div class="hero-buttons">
+                    <a href="tel:+385995224817" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Nazovite nas
+                    </a>
+                    <a href="#usluge" class="btn btn-outline">Naše usluge</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>6+</h3>
+                        <p>Vrsta usluga</p>
+                    </div>
+                    <div class="stat">
+                        <h3>Pula</h3>
+                        <p>Sjedište firme</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <p>Posvećenost kvaliteti</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-svg-glow"></div>
+                <div class="hero-svg-wrap">
+                    <svg viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Kuca/prostor -->
+                        <rect x="60" y="100" width="380" height="280" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="rgba(255,255,255,0.03)"/>
+                        <!-- Krov -->
+                        <path d="M40 105 L250 20 L460 105" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <path d="M40 105 L250 20 L460 105" stroke="var(--accent)" stroke-width="3" fill="rgba(230,126,34,0.05)" stroke-linecap="round"/>
+                        <!-- Pod -->
+                        <line x1="60" y1="340" x2="440" y2="340" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                        <!-- Podne plocice -->
+                        <rect x="60" y="340" width="380" height="40" fill="rgba(255,255,255,0.04)" rx="0"/>
+                        <line x1="155" y1="340" x2="155" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                        <line x1="250" y1="340" x2="250" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                        <line x1="345" y1="340" x2="345" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+                        <!-- Zid lijevo -->
+                        <line x1="60" y1="100" x2="60" y2="380" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                        <!-- Pregradni zid (suhogradnja) -->
+                        <rect x="280" y="130" width="8" height="210" fill="var(--accent)" rx="2" opacity="0.7"/>
+                        <rect x="280" y="130" width="8" height="210" fill="url(#wallGrad)" rx="2"/>
+                        <!-- Profili suhogradnje -->
+                        <line x1="276" y1="170" x2="292" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <line x1="276" y1="220" x2="292" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <line x1="276" y1="270" x2="292" y2="270" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+                        <!-- Spusteni strop -->
+                        <rect x="80" y="120" width="180" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
+                        <line x1="110" y1="100" x2="110" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <line x1="200" y1="100" x2="200" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
+                        <!-- Valjak za boju -->
+                        <g transform="translate(130, 190) rotate(-30)">
+                            <rect x="0" y="0" width="50" height="22" rx="6" fill="var(--accent)" opacity="0.8"/>
+                            <rect x="2" y="2" width="46" height="18" rx="5" fill="var(--accent)" opacity="0.6"/>
+                            <line x1="25" y1="22" x2="25" y2="75" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="25" cy="75" r="3" fill="rgba(255,255,255,0.4)"/>
+                        </g>
+                        <!-- Metalna nadstresnica (desna strana) -->
+                        <g transform="translate(310, 140)">
+                            <!-- Stupovi -->
+                            <rect x="0" y="30" width="6" height="170" fill="rgba(255,255,255,0.25)" rx="1"/>
+                            <rect x="110" y="30" width="6" height="170" fill="rgba(255,255,255,0.25)" rx="1"/>
+                            <!-- Gornja greda -->
+                            <rect x="-5" y="25" width="126" height="8" rx="2" fill="var(--accent)" opacity="0.5"/>
+                            <!-- Kose grede -->
+                            <line x1="20" y1="29" x2="20" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                            <line x1="58" y1="29" x2="58" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                            <line x1="96" y1="29" x2="96" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                            <!-- Krovne lajsne -->
+                            <rect x="-10" y="-2" width="136" height="4" rx="2" fill="var(--accent)" opacity="0.35"/>
+                        </g>
+                        <!-- Lopata/gleterica -->
+                        <g transform="translate(370, 260)">
+                            <rect x="0" y="0" width="40" height="4" rx="2" fill="rgba(255,255,255,0.4)"/>
+                            <path d="M15 4 L15 50 Q20 55 25 50 L25 4" fill="rgba(255,255,255,0.25)"/>
+                            <line x1="20" y1="50" x2="20" y2="70" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
+                        </g>
+                        <!-- Prozor -->
+                        <rect x="120" y="155" width="60" height="50" rx="3" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="rgba(255,255,255,0.04)"/>
+                        <line x1="150" y1="155" x2="150" y2="205" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                        <line x1="120" y1="180" x2="180" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                        <!-- Dimenzijske linije -->
+                        <g opacity="0.4">
+                            <line x1="60" y1="400" x2="280" y2="400" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 3"/>
+                            <line x1="60" y1="395" x2="60" y2="405" stroke="var(--accent)" stroke-width="1"/>
+                            <line x1="280" y1="395" x2="280" y2="405" stroke="var(--accent)" stroke-width="1"/>
+                            <text x="170" y="418" fill="var(--accent)" font-size="11" text-anchor="middle" font-family="Inter">3.20 m</text>
+                        </g>
+                        <g opacity="0.4">
+                            <line x1="470" y1="130" x2="470" y2="340" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 3"/>
+                            <line x1="465" y1="130" x2="475" y2="130" stroke="var(--accent)" stroke-width="1"/>
+                            <line x1="465" y1="340" x2="475" y2="340" stroke="var(--accent)" stroke-width="1"/>
+                            <text x="480" y="240" fill="var(--accent)" font-size="11" text-anchor="start" font-family="Inter" transform="rotate(90 480 240)">2.60 m</text>
+                        </g>
+                        <!-- Dekorativni krugovi -->
+                        <circle cx="90" cy="280" r="25" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.15" stroke-dasharray="4 6"/>
+                        <circle cx="400" cy="120" r="15" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="3 5"/>
+                        <!-- Gradijent definicije -->
+                        <defs>
+                            <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8"/>
+                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.3"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- O NAMA -->
+    <section class="about" id="o-nama">
+        <div class="container">
+            <span class="section-label">O nama</span>
+            <h2 class="section-title">Cjelovita usluga na jednom mjestu</h2>
+            <hr class="section-divider">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="images/nadstresnica-metal/gotovo.jpeg" alt="Metalna nadstrešnica - M.G. interijeri" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="about-text">
+                    <p>M.G. interijeri j.d.o.o. je firma specijalizirana za završne radove u građevinarstvu u Puli i na području Istarske županije, uz mogućnost izvođenja radova i na drugim lokacijama po dogovoru.</p>
+                    <p>Bavimo se uređenjem stanova, kuća i poslovnih prostora, kako u novogradnji tako i kod adaptacija i renovacija. Uz klasične završne radove, nudimo i suhogradnju te izradu nadstrešnica i metalnih konstrukcija.</p>
+                    <p>Klijentima nudimo individualan pristup, stručno savjetovanje i kvalitetna rješenja prilagođena prostoru, namjeni i budžetu.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="10" y1="11" x2="14" y2="11"/></svg></div>
+                            Novogradnja
+                        </div>
+                        <div class="about-feature">
+                            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                            Adaptacije
+                        </div>
+                        <div class="about-feature">
+                            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                            Renovacije
+                        </div>
+                        <div class="about-feature">
+                            <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg></div>
+                            Poslovni prostori
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USLUGE -->
+    <section id="usluge">
+        <div class="container">
+            <span class="section-label">Usluge</span>
+            <h2 class="section-title">Naše usluge završnih radova</h2>
+            <hr class="section-divider">
+            <p class="section-subtitle">Kompletni završni i dodatni građevinski radovi za stambene i poslovne objekte.</p>
+            <div class="scroll-hint">
+                <span>Povucite za više</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+
+            <div class="services-grid">
+                <!-- 1 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+                    <h3>Gipskartonski (knauf) i suhogradnja</h3>
+                    <ul>
+                        <li>Izrada pregradnih zidova u stanovima, kućama i uredima</li>
+                        <li>Spušteni stropovi</li>
+                        <li>Obloge zidova i stropova</li>
+                        <li>Suhogradnja vanjskih i unutarnjih elemenata</li>
+                        <li>Izrada nadstrešnica u suhogradnji</li>
+                    </ul>
+                </div>
+
+                <!-- 2 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="16" height="8" rx="2"/><path d="M18 6h2a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-2"/><path d="M10 10v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8"/></svg></div>
+                    <h3>Ličenje i soboslikarski radovi</h3>
+                    <ul>
+                        <li>Bojanje zidova i stropova</li>
+                        <li>Ličenje stanova, kuća i poslovnih prostora</li>
+                        <li>Gletanje i priprema površina</li>
+                        <li>Sanacija oštećenja i završna obrada prostora</li>
+                    </ul>
+                </div>
+
+                <!-- 3 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="8" y1="2" x2="8" y2="12"/><line x1="16" y1="2" x2="16" y2="12"/><line x1="12" y1="12" x2="12" y2="22"/></svg></div>
+                    <h3>Podopolagački radovi</h3>
+                    <ul>
+                        <li>Ugradnja laminata</li>
+                        <li>Postavljanje parketa i drugih podnih obloga</li>
+                        <li>Priprema podloge za kvalitetan i dugotrajan rezultat</li>
+                    </ul>
+                </div>
+
+                <!-- 4 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l10-10"/><path d="M16 4l4 4-12 12H4v-4L16 4z"/><line x1="15" y1="5" x2="19" y2="9"/></svg></div>
+                    <h3>Žbukanje i priprema zidova</h3>
+                    <ul>
+                        <li>Grubo i fino žbukanje</li>
+                        <li>Izravnavanje zidova i stropova</li>
+                        <li>Priprema površina za daljnje završne radove</li>
+                    </ul>
+                </div>
+
+                <!-- 5 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="7" y1="21" x2="7" y2="14"/><line x1="17" y1="21" x2="17" y2="14"/><line x1="7" y1="14" x2="17" y2="14"/></svg></div>
+                    <h3>Nadstrešnice i metalne konstrukcije</h3>
+                    <ul>
+                        <li>Izrada metalnih nadstrešnica</li>
+                        <li>Izrada i montaža metalnih konstrukcija</li>
+                        <li>Kombinacija metala i suhogradnje</li>
+                        <li>Prilagodba rješenja prema potrebama prostora</li>
+                    </ul>
+                </div>
+
+                <!-- 6 -->
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+                    <h3>Adaptacije i renovacije prostora</h3>
+                    <ul>
+                        <li>Adaptacija stanova i kuća u Puli i Istri</li>
+                        <li>Uređenje poslovnih i uredskih prostora</li>
+                        <li>Manji građevinski i popravni radovi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJEKTI / GALERIJA -->
+    <section class="gallery" id="projekti">
+        <div class="container">
+            <span class="section-label">Projekti</span>
+            <h2 class="section-title">Naši realizirani projekti</h2>
+            <hr class="section-divider">
+            <p class="section-subtitle">Pogledajte primjere naših radova - od početnog stanja do završnog rezultata.</p>
+
+            <div class="gallery-grid">
+                <!-- Projekt 1: Renovacija -->
+                <div class="project-card fade-up">
+                    <div class="project-slider" data-slider>
+                        <span class="project-badge">Prije &amp; poslije</span>
+                        <img src="images/renovacija/prije.jpeg" alt="Renovacija prostorije - prije" class="active">
+                        <img src="images/renovacija/tijekom.jpeg" alt="Renovacija prostorije - žbukanje">
+                        <img src="images/renovacija/poslije.jpeg" alt="Renovacija prostorije - poslije">
+                        <button class="slider-btn prev" aria-label="Prethodna">&lsaquo;</button>
+                        <button class="slider-btn next" aria-label="Sljedeća">&rsaquo;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Renovacija unutarnjeg prostora</h3>
+                        <p>Žbukanje, gletanje i ličenje zidova i stropova</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 2: Fasada -->
+                <div class="project-card fade-up">
+                    <div class="project-slider" data-slider>
+                        <span class="project-badge">Prije &amp; poslije</span>
+                        <img src="images/fasada/prije.jpeg" alt="Fasada kuće - prije" class="active">
+                        <img src="images/fasada/tijekom.jpeg" alt="Fasada kuće - tijekom radova">
+                        <img src="images/fasada/tijekom-2.jpeg" alt="Fasada kuće - tijekom radova">
+                        <img src="images/fasada/poslije.jpeg" alt="Fasada kuće - poslije">
+                        <button class="slider-btn prev" aria-label="Prethodna">&lsaquo;</button>
+                        <button class="slider-btn next" aria-label="Sljedeća">&rsaquo;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Vanjska renovacija kuće</h3>
+                        <p>Adaptacija fasade, terasa i vanjskih zidova</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 3: Metalna nadstrešnica -->
+                <div class="project-card fade-up">
+                    <div class="project-slider" data-slider>
+                        <span class="project-badge">Proces izrade</span>
+                        <img src="images/nadstresnica-metal/konstrukcija.jpeg" alt="Metalna nadstrešnica - konstrukcija" class="active">
+                        <img src="images/nadstresnica-metal/montaza.jpeg" alt="Metalna nadstrešnica - montaža">
+                        <img src="images/nadstresnica-metal/suhogradnja.jpeg" alt="Metalna nadstrešnica - suhogradnja">
+                        <img src="images/nadstresnica-metal/gotovo.jpeg" alt="Metalna nadstrešnica - gotovo">
+                        <button class="slider-btn prev" aria-label="Prethodna">&lsaquo;</button>
+                        <button class="slider-btn next" aria-label="Sljedeća">&rsaquo;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Metalna nadstrešnica sa suhogradnjom</h3>
+                        <p>Izrada metalne konstrukcije, obloga i završni radovi</p>
+                    </div>
+                </div>
+
+                <!-- Projekt 4: Drvena nadstrešnica -->
+                <div class="project-card fade-up">
+                    <div class="project-slider" data-slider>
+                        <span class="project-badge">Prije &amp; poslije</span>
+                        <img src="images/nadstresnica-drvo/prije.jpeg" alt="Drvena nadstrešnica - prije" class="active">
+                        <img src="images/nadstresnica-drvo/montaza.jpeg" alt="Drvena nadstrešnica - montaža">
+                        <img src="images/nadstresnica-drvo/obloga.jpeg" alt="Drvena nadstrešnica - drvena obloga">
+                        <img src="images/nadstresnica-drvo/terasa.jpeg" alt="Drvena nadstrešnica - terasa">
+                        <img src="images/nadstresnica-drvo/gotovo.jpeg" alt="Drvena nadstrešnica - gotovo iznutra">
+                        <img src="images/nadstresnica-drvo/gotovo-izvana.jpeg" alt="Drvena nadstrešnica - gotovo izvana">
+                        <img src="images/nadstresnica-drvo/gotovo-izvana-2.jpeg" alt="Drvena nadstrešnica - pogled s ulice">
+                        <button class="slider-btn prev" aria-label="Prethodna">&lsaquo;</button>
+                        <button class="slider-btn next" aria-label="Sljedeća">&rsaquo;</button>
+                        <div class="slider-dots"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Drvena nadstrešnica na terasi</h3>
+                        <p>Konstrukcija, drvena obloga i kompletna izrada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VRSTE RADOVA -->
+    <section class="types" id="vrste">
+        <div class="container">
+            <span class="section-label">Vrste radova</span>
+            <h2 class="section-title">Završni radovi za sve tipove objekata</h2>
+            <hr class="section-divider" style="background: linear-gradient(90deg, var(--accent), #f39c12, var(--accent));">
+            <p class="section-subtitle">Firma M.G. interijeri j.d.o.o. izvodi radove na svim vrstama objekata.</p>
+
+            <div class="types-grid">
+                <div class="type-card fade-up">
+                    <div class="type-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="6" x2="11" y2="6"/><line x1="13" y1="6" x2="15" y2="6"/><line x1="9" y1="10" x2="11" y2="10"/><line x1="13" y1="10" x2="15" y2="10"/><line x1="9" y1="14" x2="11" y2="14"/><line x1="13" y1="14" x2="15" y2="14"/><rect x="10" y="18" width="4" height="4"/></svg></div>
+                    <h4>Stanovi</h4>
+                    <p>Završni radovi u stanovima</p>
+                </div>
+                <div class="type-card fade-up">
+                    <div class="type-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><rect x="9" y="13" width="6" height="8"/><line x1="12" y1="9" x2="12" y2="9.01"/></svg></div>
+                    <h4>Obiteljske kuće</h4>
+                    <p>Radovi na obiteljskim kućama</p>
+                </div>
+                <div class="type-card fade-up">
+                    <div class="type-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="18" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="6" y1="4" x2="6" y2="10"/><line x1="10" y1="4" x2="10" y2="10"/><line x1="14" y1="4" x2="14" y2="10"/><line x1="18" y1="4" x2="18" y2="10"/><rect x="9" y="14" width="6" height="8"/></svg></div>
+                    <h4>Poslovni prostori</h4>
+                    <p>Uređenje ureda i lokala</p>
+                </div>
+                <div class="type-card fade-up">
+                    <div class="type-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="7" y1="21" x2="7" y2="14"/><line x1="17" y1="21" x2="17" y2="14"/><line x1="7" y1="14" x2="17" y2="14"/><line x1="12" y1="8" x2="12" y2="14"/></svg></div>
+                    <h4>Metalne konstrukcije</h4>
+                    <p>Nadstrešnice i konstrukcije</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ZASTO MI -->
+    <section class="why-us" id="zasto-mi">
+        <div class="container">
+            <span class="section-label">Zašto mi</span>
+            <h2 class="section-title">Zašto odabrati M.G. interijeri</h2>
+            <hr class="section-divider">
+            <p class="section-subtitle">Pouzdanost, kvaliteta i profesionalnost u svakom projektu.</p>
+
+            <div class="why-grid">
+                <div class="why-card fade-up">
+                    <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                    <h4>Iskustvo</h4>
+                    <p>Iskustvo u završnim radovima, suhogradnji i metalnim konstrukcijama</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                    <h4>Kvaliteta</h4>
+                    <p>Kvalitetna i precizna izvedba svakog projekta</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <h4>Rokovi</h4>
+                    <p>Poštivanje rokova i dogovora</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                    <h4>Urednost</h4>
+                    <p>Urednost i profesionalan odnos prema klijentima</p>
+                </div>
+                <div class="why-card fade-up">
+                    <div class="why-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <h4>Lokacija</h4>
+                    <p>Rad na području Pule i Istarske županije</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <span class="section-label">Kontaktirajte nas</span>
+            <h2 class="section-title">Trebate pouzdanu firmu za završne radove?</h2>
+            <p>Ako tražite pouzdanu firmu za završne radove, suhogradnju, nadstrešnice ili metalne konstrukcije u Puli i Istri, M.G. interijeri j.d.o.o. stoji vam na raspolaganju za savjet i izradu ponude.</p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="tel:+385995224817" class="btn" style="background: var(--white); color: var(--accent-dark);">Nazovite: +385 99 522 4817</a>
+                <a href="mailto:info.mginterijeri@gmail.com" class="btn btn-outline">Pošaljite e-mail</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt">
+        <div class="container">
+            <span class="section-label">Kontakt</span>
+            <h2 class="section-title">Javite nam se</h2>
+            <hr class="section-divider">
+            <p class="section-subtitle">Stojimo vam na raspolaganju za savjet i izradu ponude.</p>
+
+            <div class="contact-grid">
+                <div class="contact-card fade-up">
+                    <div class="contact-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                    <h4>Telefon</h4>
+                    <a href="tel:+385995224817">+385 99 522 4817</a>
+                </div>
+                <div class="contact-card fade-up">
+                    <div class="contact-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                    <h4>E-mail</h4>
+                    <a href="mailto:info.mginterijeri@gmail.com">info.mginterijeri@gmail.com</a>
+                </div>
+                <div class="contact-card fade-up">
+                    <div class="contact-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <h4>Područje rada</h4>
+                    <p>Pula i Istarska županija<br><small>(ostalo po dogovoru)</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <a href="#" class="logo">M.G. <span>interijeri</span></a>
+        <p>&copy; 2026 M.G. interijeri j.d.o.o. Sva prava pridržana.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Fade-up animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // Project sliders
+        document.querySelectorAll('[data-slider]').forEach(slider => {
+            const images = slider.querySelectorAll('img');
+            const dotsContainer = slider.querySelector('.slider-dots');
+            let current = 0;
+
+            // Create dots
+            images.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+                dot.setAttribute('aria-label', 'Slika ' + (i + 1));
+                dot.addEventListener('click', () => goTo(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            function goTo(index) {
+                images[current].classList.remove('active');
+                dotsContainer.children[current].classList.remove('active');
+                current = (index + images.length) % images.length;
+                images[current].classList.add('active');
+                dotsContainer.children[current].classList.add('active');
+            }
+
+            slider.querySelector('.prev').addEventListener('click', () => goTo(current - 1));
+            slider.querySelector('.next').addEventListener('click', () => goTo(current + 1));
+        });
+    </script>
+
+</body>
+</html>
