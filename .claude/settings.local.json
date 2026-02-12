@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(powershell:*)",
+      "Bash(start index.html)",
+      "WebFetch(domain:unsplash.com)",
+      "Bash(curl:*)",
+      "Bash(del \"c:\\\\LEMATECH\\\\M.G.-interijeri-\\\\download.ps1\")",
+      "WebFetch(domain:storyset.com)"
     ]
   }
 }

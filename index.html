@@ -31,6 +31,7 @@
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
+            max-width: 100vw;
         }
 
         body {
@@ -39,6 +40,7 @@
             line-height: 1.7;
             background: var(--white);
             overflow-x: hidden;
+            max-width: 100vw;
         }
 
         /* NAV */
@@ -133,86 +135,51 @@
         /* HERO */
         .hero {
             min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, #16213e 50%, #0f3460 100%);
             display: flex;
             align-items: center;
             position: relative;
-            background: linear-gradient(135deg, var(--primary) 0%, #16213e 50%, #0f3460 100%);
             overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(230, 126, 34, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
+            top: -20%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, rgba(230, 126, 34, 0.1) 0%, transparent 70%);
             border-radius: 50%;
+            pointer-events: none;
         }
 
         .hero-inner {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
             padding: 120px 24px 80px;
-            position: relative;
-            z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 48px;
             align-items: center;
-        }
-
-        .hero-text {
             position: relative;
             z-index: 2;
         }
 
-        .hero-visual {
+        .hero-image {
             position: relative;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: center;
         }
 
-        .hero-svg-wrap {
-            position: relative;
+        .hero-image img {
             width: 100%;
-            max-width: 500px;
-        }
-
-        .hero-svg-wrap svg {
-            width: 100%;
+            max-width: 460px;
             height: auto;
-            filter: drop-shadow(0 20px 60px rgba(230, 126, 34, 0.2));
-        }
-
-        .hero-svg-glow {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(230, 126, 34, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: glowPulse 4s ease-in-out infinite;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+            display: block;
+            filter: drop-shadow(0 10px 40px rgba(0,0,0,0.3));
         }
 
         .hero-badge {
@@ -766,9 +733,9 @@
             content: '';
             position: absolute;
             top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
+            right: 0;
+            width: 350px;
+            height: 350px;
             background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             border-radius: 50%;
         }
@@ -906,16 +873,11 @@
 
         @media (max-width: 1024px) {
             .hero-inner {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 32px;
             }
-            .hero-visual {
-                max-height: 300px;
-                overflow: hidden;
-            }
-            .hero-svg-wrap {
-                max-width: 400px;
-                margin: 0 auto;
+            .hero-image img {
+                max-width: 380px;
             }
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -937,27 +899,21 @@
             }
 
             /* HERO MOBILE */
-            .hero {
-                min-height: auto;
-                padding-bottom: 0;
+            .hero::before {
+                display: none;
             }
             .hero-inner {
-                padding: 100px 20px 40px;
                 grid-template-columns: 1fr;
-                gap: 20px;
+                padding: 80px 20px 32px;
+                gap: 24px;
+                text-align: center;
             }
-            .hero-visual {
+            .hero-image {
                 order: -1;
-                max-height: 220px;
-                overflow: hidden;
             }
-            .hero-svg-wrap {
-                max-width: 320px;
+            .hero-image img {
+                max-width: 280px;
                 margin: 0 auto;
-            }
-            .hero-svg-glow {
-                width: 100%;
-                height: 100%;
             }
             .hero-badge {
                 font-size: 0.78rem;
@@ -976,11 +932,14 @@
             }
             .hero-buttons {
                 flex-direction: column;
+                align-items: center;
             }
             .btn {
                 justify-content: center;
                 padding: 14px 28px;
                 font-size: 0.95rem;
+                width: 100%;
+                max-width: 320px;
             }
             .hero-stats {
                 gap: 0;
@@ -1270,7 +1229,7 @@
         <div class="hero-inner">
             <div class="hero-text">
                 <div class="hero-badge">Pula &amp; Istarska županija</div>
-                <h1>Završni radovi, suhogradnja i <span>metalne konstrukcije</span></h1>
+                <h1>Završni radovi u građevinarstvu u <span>Puli i Istri</span></h1>
                 <p>M.G. interijeri j.d.o.o. je firma specijalizirana za završne radove u građevinarstvu u Puli i na području Istarske županije. Pouzdane usluge za privatne i poslovne klijente.</p>
                 <div class="hero-buttons">
                     <a href="tel:+385995224817" class="btn btn-primary">
@@ -1280,105 +1239,13 @@
                     <a href="#usluge" class="btn btn-outline">Naše usluge</a>
                 </div>
                 <div class="hero-stats">
-                    <div class="stat">
-                        <h3>6+</h3>
-                        <p>Vrsta usluga</p>
-                    </div>
-                    <div class="stat">
-                        <h3>Pula</h3>
-                        <p>Sjedište firme</p>
-                    </div>
-                    <div class="stat">
-                        <h3>100%</h3>
-                        <p>Posvećenost kvaliteti</p>
-                    </div>
+                    <div class="stat"><h3>6+</h3><p>Vrsta usluga</p></div>
+                    <div class="stat"><h3>Pula</h3><p>Sjedište firme</p></div>
+                    <div class="stat"><h3>100%</h3><p>Posvećenost kvaliteti</p></div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-svg-glow"></div>
-                <div class="hero-svg-wrap">
-                    <svg viewBox="0 0 500 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Kuca/prostor -->
-                        <rect x="60" y="100" width="380" height="280" rx="8" stroke="rgba(255,255,255,0.15)" stroke-width="2" fill="rgba(255,255,255,0.03)"/>
-                        <!-- Krov -->
-                        <path d="M40 105 L250 20 L460 105" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round"/>
-                        <path d="M40 105 L250 20 L460 105" stroke="var(--accent)" stroke-width="3" fill="rgba(230,126,34,0.05)" stroke-linecap="round"/>
-                        <!-- Pod -->
-                        <line x1="60" y1="340" x2="440" y2="340" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                        <!-- Podne plocice -->
-                        <rect x="60" y="340" width="380" height="40" fill="rgba(255,255,255,0.04)" rx="0"/>
-                        <line x1="155" y1="340" x2="155" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                        <line x1="250" y1="340" x2="250" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                        <line x1="345" y1="340" x2="345" y2="380" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
-                        <!-- Zid lijevo -->
-                        <line x1="60" y1="100" x2="60" y2="380" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
-                        <!-- Pregradni zid (suhogradnja) -->
-                        <rect x="280" y="130" width="8" height="210" fill="var(--accent)" rx="2" opacity="0.7"/>
-                        <rect x="280" y="130" width="8" height="210" fill="url(#wallGrad)" rx="2"/>
-                        <!-- Profili suhogradnje -->
-                        <line x1="276" y1="170" x2="292" y2="170" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                        <line x1="276" y1="220" x2="292" y2="220" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                        <line x1="276" y1="270" x2="292" y2="270" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-                        <!-- Spusteni strop -->
-                        <rect x="80" y="120" width="180" height="6" rx="3" fill="rgba(255,255,255,0.12)"/>
-                        <line x1="110" y1="100" x2="110" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-                        <line x1="200" y1="100" x2="200" y2="120" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="4 4"/>
-                        <!-- Valjak za boju -->
-                        <g transform="translate(130, 190) rotate(-30)">
-                            <rect x="0" y="0" width="50" height="22" rx="6" fill="var(--accent)" opacity="0.8"/>
-                            <rect x="2" y="2" width="46" height="18" rx="5" fill="var(--accent)" opacity="0.6"/>
-                            <line x1="25" y1="22" x2="25" y2="75" stroke="rgba(255,255,255,0.5)" stroke-width="3" stroke-linecap="round"/>
-                            <circle cx="25" cy="75" r="3" fill="rgba(255,255,255,0.4)"/>
-                        </g>
-                        <!-- Metalna nadstresnica (desna strana) -->
-                        <g transform="translate(310, 140)">
-                            <!-- Stupovi -->
-                            <rect x="0" y="30" width="6" height="170" fill="rgba(255,255,255,0.25)" rx="1"/>
-                            <rect x="110" y="30" width="6" height="170" fill="rgba(255,255,255,0.25)" rx="1"/>
-                            <!-- Gornja greda -->
-                            <rect x="-5" y="25" width="126" height="8" rx="2" fill="var(--accent)" opacity="0.5"/>
-                            <!-- Kose grede -->
-                            <line x1="20" y1="29" x2="20" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                            <line x1="58" y1="29" x2="58" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                            <line x1="96" y1="29" x2="96" y2="0" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                            <!-- Krovne lajsne -->
-                            <rect x="-10" y="-2" width="136" height="4" rx="2" fill="var(--accent)" opacity="0.35"/>
-                        </g>
-                        <!-- Lopata/gleterica -->
-                        <g transform="translate(370, 260)">
-                            <rect x="0" y="0" width="40" height="4" rx="2" fill="rgba(255,255,255,0.4)"/>
-                            <path d="M15 4 L15 50 Q20 55 25 50 L25 4" fill="rgba(255,255,255,0.25)"/>
-                            <line x1="20" y1="50" x2="20" y2="70" stroke="rgba(255,255,255,0.35)" stroke-width="3" stroke-linecap="round"/>
-                        </g>
-                        <!-- Prozor -->
-                        <rect x="120" y="155" width="60" height="50" rx="3" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="rgba(255,255,255,0.04)"/>
-                        <line x1="150" y1="155" x2="150" y2="205" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                        <line x1="120" y1="180" x2="180" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-                        <!-- Dimenzijske linije -->
-                        <g opacity="0.4">
-                            <line x1="60" y1="400" x2="280" y2="400" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 3"/>
-                            <line x1="60" y1="395" x2="60" y2="405" stroke="var(--accent)" stroke-width="1"/>
-                            <line x1="280" y1="395" x2="280" y2="405" stroke="var(--accent)" stroke-width="1"/>
-                            <text x="170" y="418" fill="var(--accent)" font-size="11" text-anchor="middle" font-family="Inter">3.20 m</text>
-                        </g>
-                        <g opacity="0.4">
-                            <line x1="470" y1="130" x2="470" y2="340" stroke="var(--accent)" stroke-width="1" stroke-dasharray="6 3"/>
-                            <line x1="465" y1="130" x2="475" y2="130" stroke="var(--accent)" stroke-width="1"/>
-                            <line x1="465" y1="340" x2="475" y2="340" stroke="var(--accent)" stroke-width="1"/>
-                            <text x="480" y="240" fill="var(--accent)" font-size="11" text-anchor="start" font-family="Inter" transform="rotate(90 480 240)">2.60 m</text>
-                        </g>
-                        <!-- Dekorativni krugovi -->
-                        <circle cx="90" cy="280" r="25" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.15" stroke-dasharray="4 6"/>
-                        <circle cx="400" cy="120" r="15" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.2" stroke-dasharray="3 5"/>
-                        <!-- Gradijent definicije -->
-                        <defs>
-                            <linearGradient id="wallGrad" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.8"/>
-                                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.3"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
+            <div class="hero-image">
+                <img src="images/hero-worker.png" alt="Građevinski radnici - M.G. interijeri">
             </div>
         </div>
     </section>
@@ -1741,6 +1608,8 @@
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+
 
         // Project sliders
         document.querySelectorAll('[data-slider]').forEach(slider => {
